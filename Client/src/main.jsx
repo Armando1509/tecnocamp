@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {BrowserRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Auth0Provider } from '@auth0/auth0-react';
 import App from "./App"
 import { Provider } from 'react-redux';
@@ -10,11 +10,12 @@ const { VITE_DOMAIN, VITE_CLIENTID } = import.meta.env;
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <Auth0Provider
    /*  domain = {VITE_DOMAIN}
     clientId= {VITE_CLIENTID} */
-    domain="dev-63fntm00jadd2yyb.us.auth0.com"
-    clientId="nwkBhPmGn2XBp77V3X16a9m0eqgnriW8"
+    domain="dev-csn8fa2s8p4j2ruw.us.auth0.com" 
+    clientId="wYH19RfYMwKAsc5oFYDFP5dfLlCK7PaW"
 
     authorizationParams={{
       redirect_uri: window.location.origin
@@ -23,9 +24,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
 
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
     </Auth0Provider>
+  </React.StrictMode>
 );
